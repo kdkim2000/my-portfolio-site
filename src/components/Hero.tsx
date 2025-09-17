@@ -29,9 +29,10 @@ const Hero: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const texts = [
-    'SSAFY 멘토',
+    'SSAFY Mentor',
     'Full Stack Developer',
     'SW Architect',
+    'Data Scientist',
     'Problem Solver',
   ];
 
@@ -162,17 +163,20 @@ const Hero: React.FC = () => {
               fontSize: { xs: '1rem', md: '1.2rem' },
               color: '#64748b',
               mb: 6,
-              maxWidth: '600px',
+              maxWidth: '650px',
               mx: 'auto',
               lineHeight: 1.7,
               fontWeight: 400,
+              textAlign: 'center',
+              wordBreak: 'keep-all', // 한글 단어 단위로 줄바꿈
+              overflowWrap: 'break-word',
             }}
           >
-            사용자 중심의 웹 경험을 만들고, 지속적인 학습을 통해{' '}
-            <Box component="span" sx={{ color: '#2563eb', fontWeight: 600 }}>
+            사용자 중심의 웹 경험을 만들고, 지속적인 학습으로<br/>
+            <Box component="span" sx={{ fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }, color: '#2563eb', fontWeight: 600 }}>
               임팩트 있는 소프트웨어
             </Box>
-            를 개발하는 것이 목표입니다.
+            <br/>를 개발하는 것이 목표입니다.
           </Typography>
 
           {/* CTA Buttons */}
