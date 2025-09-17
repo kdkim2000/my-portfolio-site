@@ -205,7 +205,7 @@ const About: React.FC = () => {
             {/* 멘토 전문 분야 */}
             <Grid container spacing={4} sx={{ mb: 6 }}>
               {mentorInfo.specialties.map((specialty, index) => (
-                <Grid size={{ xs: 12, md: 4 }} key={index}>
+                <Grid item xs={12} sm={6} lg={4} key={index}>
                   <Box
                     sx={{
                       textAlign: 'center',
@@ -299,7 +299,7 @@ const About: React.FC = () => {
 
           <Grid container spacing={4} sx={{ mb: 8 }}>
             {mentorProjects.map((project, index) => (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+              <Grid item xs={12} sm={6} key={index}>
                 <Card
                   sx={{
                     height: '100%',
@@ -370,7 +370,7 @@ const About: React.FC = () => {
 
           <Grid container spacing={4}>
             {coreValues.map((value, index) => (
-              <Grid size={{ xs: 12, md: 6 }} key={index}>
+              <Grid item  xs={12} sm={6} key={index}>
                 <Card
                   sx={{
                     height: '100%',
