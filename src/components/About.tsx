@@ -38,7 +38,7 @@ const About: React.FC = () => {
   const mentorInfo = {
     title: '좋은길벗 멘토',
     role: '삼성SDS • SW 아키텍트 • 클라우드 엔지니어',
-    experience: '18+ Years in Enterprise Software',
+    experience: '25+ Years in Enterprise Software',
     specialties: [
       {
         title: 'SW 아키텍처 설계',
@@ -153,7 +153,7 @@ const About: React.FC = () => {
             <Box component="span" sx={{ color: '#2563eb', fontWeight: 700 }}>
               현업 전문가와 함께하는 성장 여정
             </Box>
-            을 통해 실무 역량을 키워나가고 있는 SSAFY 교육생입니다.
+            을 통해 실무 역량을 키워나가고 있는 SSAFY 맨토입니다.
           </Typography>
         </Box>
 

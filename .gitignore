@@ -22,3 +22,17 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Lighthouse
+.lighthouseci/
+lhci_reports/
+
+# Bundle analyzer
+dist-analyze/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

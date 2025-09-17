@@ -1,4 +1,4 @@
-// src/App.tsx - 최종 수정 버전
+// src/App.tsx - useDocumentHead 훅 사용 버전
 import React, { Suspense } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,11 +8,12 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import SEOHead from './components/SEOHead';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 
-// Skills와 Projects 임시 컴포넌트 (파일이 없는 경우 대체용)
+// Skills와 Projects 임시 컴포넌트
 const TemporarySkills: React.FC = () => (
   <Box id="skills" sx={{ py: 10, px: 4, bgcolor: '#f0f0f0', textAlign: 'center' }}>
     <h2 style={{ color: '#1e293b', marginBottom: '16px' }}>Skills Section (임시)</h2>
@@ -35,10 +36,29 @@ const TemporaryProjects: React.FC = () => (
   </Box>
 );
 
-// 로딩 컴포넌트
+// 로딩 컴포넌트 최적화
 const LoadingSpinner: React.FC = () => (
-  <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
-    <CircularProgress />
+  <Box 
+    sx={{ 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center',
+      py: 8,
+      minHeight: '200px' 
+    }}
+    role="status"
+    aria-label="콘텐츠 로딩 중"
+  >
+    <CircularProgress size={40} thickness={4} />
+  </Box>
+);
+
+// 에러 경계 컴포넌트
+const ErrorFallback: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <Box sx={{ py: 8, px: 4, textAlign: 'center', bgcolor: '#fef2f2' }}>
+    <h3 style={{ color: '#dc2626', marginBottom: '8px' }}>컴포넌트 로딩 실패</h3>
+    <p style={{ color: '#7f1d1d' }}>페이지를 새로고침해주세요.</p>
+    {children}
   </Box>
 );
 
@@ -53,6 +73,66 @@ const Projects = React.lazy(() =>
   import('./components/Projects').catch(() => ({
     default: TemporaryProjects
   }))
+);
+
+// Contact 섹션 (간단한 연락처)
+const Contact: React.FC = () => (
+  <Box 
+    id="contact" 
+    component="section"
+    sx={{ 
+      py: { xs: 8, md: 12 }, 
+      bgcolor: '#1e293b',
+      color: 'white',
+      textAlign: 'center' 
+    }}
+  >
+    <h2 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '2rem' }}>
+      Let's Connect
+    </h2>
+    <p style={{ fontSize: '1.2rem', marginBottom: '2rem', opacity: 0.9 }}>
+      새로운 기회와 협업에 열려있습니다.
+    </p>
+    <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, flexWrap: 'wrap' }}>
+      <a 
+        href="mailto:kdkim2000@gmail.com" 
+        style={{ 
+          color: '#60a5fa', 
+          textDecoration: 'none',
+          fontSize: '1.1rem',
+          fontWeight: 500
+        }}
+      >
+        📧 kdkim2000@gmail.com
+      </a>
+      <a 
+        href="https://github.com/kdkim2000" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ 
+          color: '#60a5fa', 
+          textDecoration: 'none',
+          fontSize: '1.1rem',
+          fontWeight: 500
+        }}
+      >
+        🐙 GitHub
+      </a>
+      <a 
+        href="https://linkedin.com/in/kdkim2000" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ 
+          color: '#60a5fa', 
+          textDecoration: 'none',
+          fontSize: '1.1rem',
+          fontWeight: 500
+        }}
+      >
+        💼 LinkedIn
+      </a>
+    </Box>
+  </Box>
 );
 
 const theme = createTheme({
@@ -146,6 +226,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <SEOHead />
       <div className="App">
         <Header />
         <main>
@@ -157,7 +238,20 @@ function App() {
           <Suspense fallback={<LoadingSpinner />}>
             <Projects />
           </Suspense>
+          <Contact />
         </main>
+        <footer style={{ 
+          textAlign: 'center', 
+          padding: '2rem', 
+          backgroundColor: '#f8fafc',
+          color: '#64748b',
+          fontSize: '0.9rem'
+        }}>
+          <p>© 2024 좋은길벗. Built with React + TypeScript + MUI</p>
+          <p style={{ marginTop: '0.5rem', fontSize: '0.8rem' }}>
+            Last updated: {new Date().toLocaleDateString('ko-KR')}
+          </p>
+        </footer>
       </div>
     </ThemeProvider>
   );

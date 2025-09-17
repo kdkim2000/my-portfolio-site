@@ -114,7 +114,7 @@ const Header: React.FC = () => {
                 },
               }}
             >
-              김개발.dev
+              좋은길벗
             </Typography>
 
             {!isMobile ? (
