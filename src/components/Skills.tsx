@@ -393,7 +393,7 @@ const Skills: React.FC = () => {
                       </Typography>
                       <Grid container spacing={3}>
                         {certs.map((cert) => (
-                          <Grid size={{ xs: 12, sm: 6, lg: 4 }} key={cert.name}>
+                          <Grid item xs={12} sm={6} lg={4} key={cert.name}>
                             <Card
                               sx={{
                                 height: '100%',
@@ -482,7 +482,7 @@ const Skills: React.FC = () => {
                 // Skills Content (기존 코드)
                 <Grid container spacing={3}>
                   {category.skills.map((skill, index) => (
-                    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={skill.name}>
+                    <Grid item xs={12} sm={6} lg={4} key={skill.name}>
                       <Card
                         sx={{
                           height: '100%',

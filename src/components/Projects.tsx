@@ -247,7 +247,7 @@ const Projects: React.FC = () => {
         {/* Projects Grid */}
         <Grid container spacing={4}>
           {filteredProjects.map((project) => (
-            <Grid size={{ xs: 12, md: 6, lg: 4 }} key={project.id}>
+            <Grid item  xs={12} sm={6} lg={4}  key={project.id}>
               <Card
                 sx={{
                   height: '100%',
@@ -440,7 +440,7 @@ const Projects: React.FC = () => {
               </DialogTitle>
               <DialogContent sx={{ p: 3 }}>
                 <Grid container spacing={3}>
-                  <Grid size={{ xs: 12, md: 6 }}>
+                  <Grid item xs={12} sm={6} >
                     <Box sx={{ mb: 3 }}>
                       <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, color: '#1e293b' }}>
                         🎯 문제 정의
@@ -473,7 +473,7 @@ const Projects: React.FC = () => {
                       </Stack>
                     </Box>
                   </Grid>
-                  <Grid size={{ xs: 12, md: 6 }}>
+                  <Grid item  xs={12} sm={6} >
                     <Box sx={{ mb: 3 }}>
                       <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, color: '#1e293b' }}>
                         🛠️ 기술적 도전
@@ -494,7 +494,7 @@ const Projects: React.FC = () => {
                         📋 프로젝트 정보
                       </Typography>
                       <Grid container spacing={1}>
-                        <Grid size={{ xs: 6 }}>
+                        <Grid item  xs={6} >
                           <Typography variant="caption" sx={{ color: '#64748b' }}>
                             개발 기간
                           </Typography>
@@ -502,7 +502,7 @@ const Projects: React.FC = () => {
                             {selectedProject.duration}
                           </Typography>
                         </Grid>
-                        <Grid size={{ xs: 6 }}>
+                        <Grid item  xs={6}  >
                           <Typography variant="caption" sx={{ color: '#64748b' }}>
                             팀 규모
                           </Typography>
@@ -510,7 +510,7 @@ const Projects: React.FC = () => {
                             {selectedProject.teamSize}
                           </Typography>
                         </Grid>
-                        <Grid size={{ xs: 12 }}>
+                        <Grid item  xs={12}  >
                           <Typography variant="caption" sx={{ color: '#64748b' }}>
                             담당 역할
                           </Typography>
