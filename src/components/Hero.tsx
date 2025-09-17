@@ -234,7 +234,7 @@ const Hero: React.FC = () => {
           {/* Social Links */}
           <Stack direction="row" spacing={2} justifyContent="center" sx={{ mb: 8 }}>
             <IconButton
-              href="https://github.com/"
+              href="https://github.com/kdkim2000"
               target="_blank"
               rel="noopener noreferrer"
               sx={{
@@ -255,7 +255,7 @@ const Hero: React.FC = () => {
             </IconButton>
             
             <IconButton
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/kdkim2000"
               target="_blank"
               rel="noopener noreferrer"
               sx={{
@@ -276,7 +276,7 @@ const Hero: React.FC = () => {
             </IconButton>
             
             <IconButton
-              href="mailto:your.email@example.com"
+              href="mailto:kdkim2000@gmail.com"
               sx={{
                 color: '#64748b',
                 bgcolor: 'white',

@@ -1,4 +1,67 @@
-// 주요 경험 프로젝트 (4개만)
+// src/components/About.tsx (기술 스택 섹션 제거 버전)
+import React from 'react';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  Avatar,
+  Chip,
+  Stack,
+  Divider,
+  useTheme,
+  Paper,
+  LinearProgress,
+} from '@mui/material';
+import {
+  Person,
+  MenuBook,
+  Handshake,
+  Build,
+  Work,
+  Architecture,
+  CloudQueue,
+  DataObject,
+  Star,
+  Code,
+  Psychology,
+  BusinessCenter,
+} from '@mui/icons-material';
+import AvatarImage from '../assets/images/Avatar.png';
+
+const About: React.FC = () => {
+  const theme = useTheme();
+
+  // 멘토 정보
+  const mentorInfo = {
+    title: '좋은길벗 멘토',
+    role: '삼성SDS • SW 아키텍트 • 클라우드 엔지니어',
+    experience: '18+ Years in Enterprise Software',
+    specialties: [
+      {
+        title: 'SW 아키텍처 설계',
+        description: '대규모 시스템 설계 및 구조 최적화',
+        icon: <Architecture />,
+        level: 95,
+      },
+      {
+        title: 'SQL 성능 튜닝',
+        description: 'Oracle DB 전문가로서 성능 최적화',
+        icon: <DataObject />,
+        level: 90,
+      },
+      {
+        title: '클라우드 전환',
+        description: 'AWS/SCP 기반 클라우드 마이그레이션',
+        icon: <CloudQueue />,
+        level: 85,
+      },
+    ],
+  };
+
+  // 주요 경험 프로젝트 (4개만)
   const mentorProjects = [
     {
       year: '2006',
@@ -24,79 +87,7 @@
       description: '현재 진행 중인 클라우드 마이그레이션',
       icon: <CloudQueue />,
     },
-  ];// src/components/About.tsx
-import React from 'react';
-import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  Avatar,
-  Chip,
-  Stack,
-  Divider,
-  useTheme,
-  Paper,
-  LinearProgress,
-} from '@mui/material';
-import {
-  School,
-  Group,
-  EmojiObjects,
-  Person,
-  MenuBook,
-  Handshake,
-  Build,
-  Work,
-  Architecture,
-  CloudQueue,
-  DataObject,
-  Timeline as TimelineIcon,
-  Star,
-  Code,
-  Psychology,
-  BusinessCenter,
-} from '@mui/icons-material';
-import AvatarImage from '../assets/images/Avatar.png';
-const About: React.FC = () => {
-  const theme = useTheme();
-
-  // 멘토 정보
-  const mentorInfo = {
-    title: '좋은길벗 멘토',
-    role: '삼성SDS • SW 아키텍트 • 클라우드 엔지니어',
-    experience: '25+ Years in Enterprise Software',
-    specialties: [
-      {
-        title: 'SW 아키텍처 설계',
-        description: '대규모 시스템 설계 및 구조 최적화',
-        icon: <Architecture />,
-        level: 95,
-      },
-      {
-        title: 'SQL 성능 튜닝',
-        description: 'Oracle DB 전문가로서 성능 최적화',
-        icon: <DataObject />,
-        level: 90,
-      },
-      {
-        title: '클라우드 전환',
-        description: 'AWS/SCP 기반 클라우드 마이그레이션',
-        icon: <CloudQueue />,
-        level: 85,
-      },
-    ],
-    // 상세 기술 스택
-    techStack: {
-      frontend: ['X-Platform', 'J-Query', 'Vue.js', 'Flutter'],
-      backend: ['Anyframe', 'SpringBoot', 'Express', 'Flask', 'Django', 'Streamlit'],
-      database: ['Oracle', 'MariaDB', 'PostgreSQL'],
-      cloud: ['AWS', 'SCP', 'k8s', 'VM', 'Docker'],
-      others: ['머신러닝', '딥러닝', 'LLM', 'RAG','LangChain','Agent' ],
-    },
-  };
+  ];
 
   const coreValues = [
     {
@@ -162,11 +153,11 @@ const About: React.FC = () => {
             <Box component="span" sx={{ color: '#2563eb', fontWeight: 700 }}>
               현업 전문가와 함께하는 성장 여정
             </Box>
-            을 통해 실무 역량을 키워나가고 있는 SSAFY 멘토 입니다.
+            을 통해 실무 역량을 키워나가고 있는 SSAFY 교육생입니다.
           </Typography>
         </Box>
 
-        {/* Mentor Introduction - 심플하고 모던하게 */}
+        {/* Mentor Introduction */}
         <Box sx={{ mb: 16 }}>
           <Paper
             elevation={0}
@@ -180,6 +171,7 @@ const About: React.FC = () => {
             <Box sx={{ textAlign: 'center', mb: 6 }}>
               <Avatar
                 src={AvatarImage}
+                alt="멘토 프로필 이미지"
                 sx={{
                   width: 100,
                   height: 100,
@@ -261,80 +253,6 @@ const About: React.FC = () => {
                 </Grid>
               ))}
             </Grid>
-
-            {/* 상세 기술 스택 */}
-            <Box sx={{ mb: 6 }}>
-              <Typography variant="h5" sx={{ fontWeight: 600, mb: 4, textAlign: 'center', color: '#1e293b' }}>
-                기술 스택
-              </Typography>
-              <Grid container spacing={4}>
-                <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: '#2563eb', fontSize: '1rem' }}>
-                      Frontend
-                    </Typography>
-                    <Stack spacing={1}>
-                      {mentorInfo.techStack.frontend.map((tech, index) => (
-                        <Chip key={index} label={tech} size="small" variant="outlined" 
-                              sx={{ borderColor: '#2563eb', color: '#2563eb' }} />
-                      ))}
-                    </Stack>
-                  </Box>
-                </Grid>
-                <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: '#059669', fontSize: '1rem' }}>
-                      Backend
-                    </Typography>
-                    <Stack spacing={1}>
-                      {mentorInfo.techStack.backend.map((tech, index) => (
-                        <Chip key={index} label={tech} size="small" variant="outlined" 
-                              sx={{ borderColor: '#059669', color: '#059669' }} />
-                      ))}
-                    </Stack>
-                  </Box>
-                </Grid>
-                <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: '#dc2626', fontSize: '1rem' }}>
-                      Database
-                    </Typography>
-                    <Stack spacing={1}>
-                      {mentorInfo.techStack.database.map((tech, index) => (
-                        <Chip key={index} label={tech} size="small" variant="outlined" 
-                              sx={{ borderColor: '#dc2626', color: '#dc2626' }} />
-                      ))}
-                    </Stack>
-                  </Box>
-                </Grid>
-                <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: '#7c3aed', fontSize: '1rem' }}>
-                      클라우드
-                    </Typography>
-                    <Stack spacing={1}>
-                      {mentorInfo.techStack.cloud.map((tech, index) => (
-                        <Chip key={index} label={tech} size="small" variant="outlined" 
-                              sx={{ borderColor: '#7c3aed', color: '#7c3aed' }} />
-                      ))}
-                    </Stack>
-                  </Box>
-                </Grid>
-                <Grid size={{ xs: 12, sm: 6, md: 2.4 }}>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: '#ea580c', fontSize: '1rem' }}>
-                      AI/ML
-                    </Typography>
-                    <Stack spacing={1}>
-                      {mentorInfo.techStack.others.map((tech, index) => (
-                        <Chip key={index} label={tech} size="small" variant="outlined" 
-                              sx={{ borderColor: '#ea580c', color: '#ea580c' }} />
-                      ))}
-                    </Stack>
-                  </Box>
-                </Grid>
-              </Grid>
-            </Box>
 
             {/* 성장형 멘토 메시지 */}
             <Box
